@@ -1,0 +1,38 @@
+.note{
+    min-height:170px;
+    background-color:#fbee34b1; 
+    margin: 20px;
+    border-radius:20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: pre-wrap;
+}
+
+
+
+.newNote{
+    background-color:#67d7cc;
+    min-height:170px;
+    margin: 20px;
+    border-radius:20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.newNote textarea{
+    border: none;
+    resize: none;
+    background-color:#67d7cc;
+    outline: none;
+    width: 100%;
+    padding: 0;
+    border-width: 0;
+}
+
+.button{
+    background-color: white;
+}
