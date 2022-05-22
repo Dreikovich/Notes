@@ -45,8 +45,8 @@ function App() {
       <h1 style={{textAlign: 'center'}}>Notes</h1>
       <Search notes={notes} setSearchText={setSearchText}/>
       <div>
-        {SearchText===""? <NoteList notes ={notes} addNote={addNote} getId={deleteNote}/> : 
-          <NoteList notes ={SearchText} addNote={addNote} getId={deleteNote}/>}
+        {SearchText!==""? <NoteList notes ={SearchText} addNote={addNote} getId={deleteNote}/>:<NoteList notes ={notes} addNote={addNote} getId={deleteNote}/>
+          }
       </div>
       
     </div>
