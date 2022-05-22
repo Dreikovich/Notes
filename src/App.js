@@ -13,16 +13,7 @@ function App() {
       text :"This is my first note",
       date:"15/04/2021"
     },
-    {
-      id: uuidv4(),
-      text :"This is my second note",
-      date:"15/04/2021"
-    },
-    {
-      id: uuidv4(),
-      text :"This is my third note",
-      date:"15/04/2021"
-    },
+    
     ]);
   
   const [SearchText, setSearchText] = useState("")
