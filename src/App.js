@@ -48,7 +48,7 @@ function App() {
         {SearchText===""? <NoteList notes ={notes} addNote={addNote} getId={deleteNote}/> : 
           <NoteList notes ={SearchText} addNote={addNote} getId={deleteNote}/>}
       </div>
-      <NoteList notes ={notes} addNote={addNote} getId={deleteNote}/>
+      
     </div>
   );
 }
