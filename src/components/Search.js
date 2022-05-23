@@ -5,18 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import Badge from "react-bootstrap/Badge";
 
-const Search = ({notes, setSearchText})=>{
+const Search = ({searchItems})=>{
     
-
-    const handleFilter = (event)=>{
-        
-        const SearchWord = event.target.value
-        console.log(SearchWord)
-        const newFilter = notes.filter((element)=>{
-            return element.text.includes(SearchWord)
-        })
-        setSearchText(newFilter)
-    }
+    
 
     return (
         // margin auto ценнтрирует весь блок
@@ -25,7 +16,7 @@ const Search = ({notes, setSearchText})=>{
             <div className="search" style={{width:"450px", margin:"auto"}}>
                 <div className="form-group">
                     <InputGroup>
-                        <FormControl  placeholder="Search..." onChange={(event)=>handleFilter(event)}>     
+                        <FormControl  placeholder="Search..." onChange={(e) => searchItems(e.target.value)}>     
                         </FormControl>
                         <Badge bg="secondary" style={{display: "flex",alignItems: "center", marginLeft:"5px"}}>
                             <FontAwesomeIcon icon={faSearch}/>

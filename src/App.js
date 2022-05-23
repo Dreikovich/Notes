@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NoteList from './components/NoteList';
 import { v4 as uuidv4 } from 'uuid';
 import {useState} from 'react'
@@ -16,7 +17,26 @@ function App() {
     
     ]);
   
-  const [SearchText, setSearchText] = useState("")
+    const [searchInput, setSearchInput] = useState("");
+    const [filteredResults, setFilteredResults] = useState([]);
+
+    const searchItems = (searchValue) => {
+      
+      setSearchInput(searchValue)
+      console.log(searchValue)
+      console.log(searchInput)
+      if (searchInput !== ''){
+        const filteredData = notes.filter((item) => {
+          return Object.values(item).join('').toLowerCase().includes(searchValue.toLowerCase())
+        })
+        console.log(filteredData)
+        setFilteredResults(filteredData)
+      }
+      else{
+        setFilteredResults(notes)
+      }
+    }
+  
 
   const addNote=(text)=>{
     const date = new Date()
@@ -30,24 +50,34 @@ function App() {
   }
 
   const deleteNote = (id) =>{
-    const newNoteList= notes.filter(el=>{
-      return el.id !== id
+
+    setNotes((prevNotes) => {
+      return prevNotes.filter(el=>el.id !== id)
     })
-    setNotes(newNoteList)
+
+    setFilteredResults((prevNotes)=>{
+      return prevNotes.filter(el=>el.id !== id)
+    })
   }
   
- 
-
-  console.log(SearchText)
-  console.log(notes)
+  // console.log(SearchText)
+  // console.log(notes)
   return (
     <div className="App">
-      <h1 style={{textAlign: 'center'}}>Notes</h1>
-      <Search notes={notes} setSearchText={setSearchText}/>
-      <div>
-        {SearchText!==""? <NoteList notes ={SearchText} addNote={addNote} getId={deleteNote}/>:<NoteList notes ={notes} addNote={addNote} getId={deleteNote}/>
-          }
-      </div>
+      <Router>
+        <h1 style={{textAlign: 'center'}}>Notes</h1>
+        <Search notes={notes} searchItems={searchItems}/>
+        <Routes>
+          <Route path="/" element={searchInput.length < 1 ?
+              <NoteList notes={notes} addNote={addNote} getId={deleteNote}/>:
+              <NoteList notes={filteredResults} addNote={addNote} getId={deleteNote}/>
+
+          }/> 
+        </Routes>
+          
+        
+      </Router>
+      
       
     </div>
   );
