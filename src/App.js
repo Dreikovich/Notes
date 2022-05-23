@@ -60,25 +60,11 @@ function App() {
     })
   }
   
-  // console.log(SearchText)
-  // console.log(notes)
   return (
-    <div className="App">
-      <Router>
+    <div className="App">     
         <h1 style={{textAlign: 'center'}}>Notes</h1>
-        <Search notes={notes} searchItems={searchItems}/>
-        <Routes>
-          <Route path="/" element={searchInput.length < 1 ?
-              <NoteList notes={notes} addNote={addNote} getId={deleteNote}/>:
-              <NoteList notes={filteredResults} addNote={addNote} getId={deleteNote}/>
-
-          }/> 
-        </Routes>
-          
-        
-      </Router>
-      
-      
+        <Search notes={notes} searchItems={searchItems}/> 
+        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} addNote={addNote} getId={deleteNote}/>
     </div>
   );
 }
