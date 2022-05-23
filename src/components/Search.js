@@ -12,7 +12,7 @@ const Search = ({searchItems})=>{
     return (
         // margin auto ценнтрирует весь блок
         // можно испольщовать flex но он автоматически ументьшает размер поиска
-        <div>
+        <div style={{display:"flex"}}>
             <div className="search" style={{width:"450px", margin:"auto"}}>
                 <div className="form-group">
                     <InputGroup>
