@@ -12,7 +12,7 @@ import RenderingItemsInSelect from './RenderDownItems.js';
 const Note = (props) =>{
     // onClick={()=>props.getId(props.note.id)}
     return(
-        <div  className={styles.note} style={{backgroundColor:`${props.getColor}`}} >
+        <div  className={styles.note} style={{backgroundColor:props.getColor? `${props.getColor}`:"#99CCFF"}} >
             <div className="select" style={{display:"flex", alignItems: "flex-start", justifyContent: "right", marginRight:"20px", maxHeight: "20px", position:"absolute", top:"5px", right:"10px"}}>
                 <SelectNoteColor icon={<FontAwesomeIcon icon={faCog} style={{color:"rgb(1,1,1)"}}/>} >
                     <RenderingItemsInSelect classname="flex-item" colors={props.colors} changeColor={props.changeColor}/>
