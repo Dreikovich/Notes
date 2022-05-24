@@ -1,11 +1,12 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 import NoteList from './components/NoteList';
 import { v4 as uuidv4 } from 'uuid';
 import {useState} from 'react'
 
 import Search from './components/Search';
+
 
 function App() {
   const [notes,  setNotes] = useState([
@@ -60,11 +61,15 @@ function App() {
     })
   }
   
+  const arrayColors=["#FFFF99","#FF99CC","#99CCFF", "#CC99FF","#CCFFCC","#FF6633"]
+
   return (
-    <div className="App">     
+    <div className="App" >     
         <h1 style={{textAlign: 'center'}}>Notes</h1>
         <Search notes={notes} searchItems={searchItems}/> 
-        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} addNote={addNote} getId={deleteNote}/>
+        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} addNote={addNote} getId={deleteNote} colors={arrayColors}/>
+        
+        
     </div>
   );
 }

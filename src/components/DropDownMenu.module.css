@@ -1,0 +1,18 @@
+.dropDownMenu{
+    position: absolute;
+    top: 30px;
+    width:100px;
+    transform: translateX(-105%);
+}
+
+.menuItem{
+    height:40px;
+    display:flex;
+    align-items: center;
+
+}
+
+.menuItem:hover{
+    border-radius: 6px;
+    background-color:#CCCCCC;
+}
