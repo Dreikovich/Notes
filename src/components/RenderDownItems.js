@@ -7,14 +7,18 @@ import styles from "./DropDownMenu.module.css"
 
 
 const RenderingItemsInSelect = (props)=>{
-  let count=0
+  
+  
+  
+
   const RenderDownItems = props.colors.map((el)=>{
+    
   
       return (
         
-        <div key={count+=1} className={styles.menuItem} >
-            <button className="btn btn-primary" style={{backgroundColor:"rgba(28,28,28,0)", borderColor:"rgba(28,28,28,0)",borderadius:"50%"}} onClick={()=>console.log("clik")}>
-              <FontAwesomeIcon icon={faCircle} style={{color:`${el}`, fontSize: "20px"}}/>
+        <div key={el.id} className={styles.menuItem} >
+            <button id={el.id} className="btn btn-primary" style={{backgroundColor:"rgba(28,28,28,0)", borderColor:"rgba(28,28,28,0)",borderadius:"50%"}} onClick={(event)=>props.changeColor(event.currentTarget.id)}>
+              <FontAwesomeIcon icon={faCircle} style={{color:`${el.color}`, fontSize: "20px"}}/>
             </button>
         </div>
       )

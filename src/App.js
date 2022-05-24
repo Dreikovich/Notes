@@ -60,14 +60,47 @@ function App() {
       return prevNotes.filter(el=>el.id !== id)
     })
   }
+  const colors=[{
+    id: uuidv4(),
+    color:"#FFFF99"
+  },
+  {
+    id: uuidv4(),
+    color:"#FF99CC"
+  },
+  {
+    id: uuidv4(),
+    color:"#99CCFF"
+  },
+  {
+    id: uuidv4(),
+    color:"#CC99FF"
+  },
+  {
+    id: uuidv4(),
+    color:"#CCFFCC"
+  },
+  {
+    id: uuidv4(),
+    color:"#FF6633"
+  },
+]
   
-  const arrayColors=["#FFFF99","#FF99CC","#99CCFF", "#CC99FF","#CCFFCC","#FF6633"]
+  const [color, setColor] = useState()
 
+  const changeColor=(id) =>{
+    // const id = event.currentTarget.id;
+    
+    const find = colors.filter(element=>element.id===id)
+    console.log(find)
+    setColor(find[0].color)
+  
+  }
   return (
     <div className="App" >     
         <h1 style={{textAlign: 'center'}}>Notes</h1>
         <Search notes={notes} searchItems={searchItems}/> 
-        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} addNote={addNote} getId={deleteNote} colors={arrayColors}/>
+        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} addNote={addNote} getId={deleteNote} colors={colors} changeColor={changeColor} getColor={color}/>
         
         
     </div>
