@@ -13,7 +13,8 @@ function App() {
     {
       id: uuidv4(),
       text :"This is my first note",
-      date:"15/04/2021"
+      date:"15/04/2021",
+      color: "#99CCFF"
     },
     
     ]);
@@ -44,7 +45,8 @@ function App() {
     const newNote ={
       id: uuidv4(),
       text : text,
-      date: date.toLocaleDateString()
+      date: date.toLocaleDateString(),
+      color:"#99CCFF"
     }
     const newNoteAray = [...notes,newNote]
     setNotes(newNoteAray)
@@ -86,24 +88,68 @@ function App() {
   },
 ]
   
-  const [color, setColor] = useState()
+  // const [color, setColor] = useState()
 
-  const changeColor=(id) =>{
-    // const id = event.currentTarget.id;
+  // const changeColor=(id) =>{
+  //   // const id = event.currentTarget.id;
     
-    const find = colors.filter(element=>element.id===id)
-    console.log(find)
-    setColor(find[0].color)
+  //   const find = colors.filter(element=>element.id===id)
+  //   // console.log(find)
+  //   setColor(find[0].color)
   
+  // }
+  
+
+  const [idOfComponent, setIdOfComponent]  = useState()
+  const  getIdComponent = (id)=>{ 
+    setIdOfComponent(id)
   }
+
+
+  const changeColorComponent=(idCol)=>{
+    
+    // console.log(idOfComponent)
+    const find = colors.filter(element=>element.id===idCol)
+
+    let index = ""
+    const copyNotes = [...notes]
+    console.log("id component " ,idOfComponent)
+    const newArray = copyNotes.filter(note =>{
+      if(note.id===idOfComponent){
+        console.log(note.id)
+        note.color = find[0].color
+        return note
+      }})
+    console.log(newArray)
+    copyNotes.map((note,idx)=>{
+      if(note.id===idOfComponent){
+          index=idx
+      }
+      console.log(index)
+    })
+    let array = [...notes]
+    if (index > -1) {
+      array.splice(index, 1, ...newArray);
+    }
+    setNotes(array)
+    
+  }
+ 
   return (
     <div className="App" >     
         <h1 style={{textAlign: 'center'}}>Notes</h1>
         <Search notes={notes} searchItems={searchItems}/> 
-        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} addNote={addNote} getId={deleteNote} colors={colors} changeColor={changeColor} getColor={color}/>
+        <NoteList notes={searchInput.length < 1 ? notes:filteredResults} 
+            addNote={addNote} 
+            getId={deleteNote}
+            getIdfromSettings = {getIdComponent}
+            colors={colors} 
+            changeColor={changeColorComponent} 
+            />
         
         
     </div>
+  
   );
 }
 

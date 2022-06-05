@@ -11,12 +11,14 @@ import RenderingItemsInSelect from './RenderDownItems.js';
 
 const Note = (props) =>{
     // onClick={()=>props.getId(props.note.id)}
+    console.log(props.note.color)
     return(
-        <div  className={styles.note} style={{backgroundColor:props.getColor? `${props.getColor}`:"#99CCFF"}} >
+        <div  className={styles.note} style={{backgroundColor:`${props.note.color}`}} >
             <div className="select" style={{display:"flex", alignItems: "flex-start", justifyContent: "right", marginRight:"20px", maxHeight: "20px", position:"absolute", top:"5px", right:"10px"}}>
-                <SelectNoteColor icon={<FontAwesomeIcon icon={faCog} style={{color:"rgb(1,1,1)"}}/>} >
-                    <RenderingItemsInSelect classname="flex-item" colors={props.colors} changeColor={props.changeColor}/>
+                <button style={{backgroundColor:"rgb(0,0,0,0)",borderColor:"rgb(0,0,0,0)"}} onClick={()=>props.getIdfromSettings(props.note.id)}><SelectNoteColor  icon={<FontAwesomeIcon icon={faCog} style={{color:"rgb(1,1,1)"}}/>} >
+                    <RenderingItemsInSelect classname="flex-item" colors={props.colors} changeColor={props.changeColor} />
                 </SelectNoteColor >
+                </button>
             </div>
             <div className="nav" style={{display:"flex", alignItems: "flex-start", marginBottom:"50px", marginRight:"50px"}} >
                 <div style={{wordWrap: "break-word"}}>

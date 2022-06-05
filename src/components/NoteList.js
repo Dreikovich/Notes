@@ -10,7 +10,7 @@ const NoteList = (props) =>{
     const renderNotes = props.notes.map((note)=>{
     return(
         <div key={note.id}>
-            <Note note={note} getId={props.getId} colors={props.colors} changeColor={props.changeColor} getColor={props.getColor}/>
+            <Note note={note} getIdfromSettings={props.getIdfromSettings} getId={props.getId} colors={props.colors} changeColor={props.changeColor} getColor={props.getColor}/>
         </div>
     )
     })
