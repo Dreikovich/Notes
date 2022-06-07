@@ -1,5 +1,5 @@
 .note{
-    min-height:170px;
+    min-height:200px;
     /* background-color:#fbee34b1;  */
     margin: 20px;
     border-radius:20px;
@@ -15,7 +15,7 @@
 
 .newNote{
     background-color:#67d7cc;
-    min-height:170px;
+    min-height:200px;
     margin: 20px;
     border-radius:20px;
     padding: 10px;

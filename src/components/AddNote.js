@@ -24,7 +24,7 @@ const AddNote = (props)=>{
         resetTextareaField()
     }
 
-    const characterLimit = 200;
+    const characterLimit = 180;
 
     return(
         <div className={styles.newNote}>
