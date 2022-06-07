@@ -30,7 +30,7 @@ const Note = (props) =>{
             
             <div className="note-footer" style={{display:"flex", alignItems: "center", justifyContent: "space-between",}}>
                 <small>{props.note.date}</small>
-                <button  onClick={()=>props.getId(props.note.id)} style={{}}className="btn btn-outline-dark">
+                <button  onClick={()=>props.getId(props.note.id)} className="btn btn-outline-dark">
                     <FontAwesomeIcon icon={faTrash} > </FontAwesomeIcon>
                 </button>
             </div>
