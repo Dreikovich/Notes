@@ -21,7 +21,7 @@ const Note = (props) =>{
                 </button>
             </div>
             <div className="nav" style={{display:"flex", alignItems: "flex-start", marginBottom:"50px", marginRight:"50px"}} >
-                <div style={{wordWrap: "break-word"}}>
+                <div className={{overflowX:"hidden"}} style={{wordWrap: "break-word"}}>
                     <p className="text" >{props.note.text}</p>
                 </div>
                 
